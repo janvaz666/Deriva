@@ -83,6 +83,7 @@
                 </li>
               </ul>
             </nav>
+            <!--
             <div class="copyright">
               &copy; {{ year }}, Designed by
               <a href="https://www.invisionapp.com/">Invision</a>. Coded by
@@ -97,6 +98,8 @@
                 >Creative Tim</a
               >.
             </div>
+            -->
+
           </div>
         </footer>
 

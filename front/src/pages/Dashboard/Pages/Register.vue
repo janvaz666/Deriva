@@ -2,7 +2,10 @@
   <ValidationObserver v-slot="{ handleSubmit }">
     <form @submit.prevent="handleSubmit(submit)">
       <div class="row">
-        <div class="col-lg-5 ml-auto">
+
+
+        <div class="col-lg-3 ml-auto">
+          <!--
           <div class="info-area info-horizontal mt-5">
             <div class="icon icon-primary">
               <i class="now-ui-icons media-2_sound-wave"></i>
@@ -41,11 +44,40 @@
               </p>
             </div>
           </div>
+          -->
+
+          <div class="picture">
+            <img
+              src="img/Logo Deriva_horizontal_slogan.png"
+              alt="Thumbnail Image"
+              class="rounded img-raised"
+            />
+          </div>
+
         </div>
-        <div class="col-lg-4 mr-auto">
+
+
+        
+
+
+
+
+        <div class="col-lg-7 mr-auto">
           <card class="card-signup text-center" no-footer-line>
             <template slot="header">
-              <h4 class="card-title">Register</h4>
+              <h4 class="card-title">Registro</h4>
+
+              <p slot="content">
+                Somos una herramienta de interconexión psicológica.
+                Nuestro objetivo es conformar una red de especialistas y trabajos para generar mayor
+                conciencia e inteligencia emocional en las personas.
+                La psicoeducación es nuestra base y la derivación nuestra finalidad,
+                Si deseas formar parte de nuestra red, registra aquí tu perfil y canalizaremos usuarios
+                que ya están requiriendo de tus servicios.
+              </p>
+              
+
+              <!--
               <div class="social">
                 <button class="btn btn-icon btn-round btn-twitter">
                   <i class="fa fa-twitter"></i>
@@ -58,9 +90,28 @@
                 </button>
                 <h5 class="card-description">or be classical</h5>
               </div>
+              -->
+
             </template>
 
             <ValidationProvider
+              name="cedulaProfesional"
+              rules="required"
+              v-slot="{ passed, failed }"
+            >
+              <fg-input
+                type="text"
+                :error="failed ? 'La cédula profesional es requerida' : null"
+                :hasSuccess="passed"
+                placeholder="Cédula Profesional..."
+                addon-left-icon="now-ui-icons users_circle-08"
+                v-model="cedulaProfesional"
+              >
+              </fg-input>
+            </ValidationProvider>
+
+            <!--
+             <ValidationProvider
               name="firstName"
               rules="required"
               v-slot="{ passed, failed }"
@@ -75,22 +126,58 @@
               >
               </fg-input>
             </ValidationProvider>
+            -->
 
             <ValidationProvider
-              name="lastName"
+              name="nombres"
               rules="required"
               v-slot="{ passed, failed }"
             >
               <fg-input
                 type="text"
-                :error="failed ? 'The First Name field is required' : null"
+                :error="failed ? 'Nombre(s) son requeridos' : null"
                 :hasSuccess="passed"
-                placeholder="Last Name..."
-                addon-left-icon="now-ui-icons text_caps-small"
-                v-model="lastName"
+                placeholder="Nombre(s)..."
+                addon-left-icon="now-ui-icons users_circle-08"
+                v-model="nombres"
               >
               </fg-input>
             </ValidationProvider>
+
+            <ValidationProvider
+              name="primerApellido"
+              rules="required"
+              v-slot="{ passed, failed }"
+            >
+              <fg-input
+                type="text"
+                :error="failed ? 'Primer Apellido es requerido' : null"
+                :hasSuccess="passed"
+                placeholder="Primer Apellido..."
+                addon-left-icon="now-ui-icons text_caps-small"
+                v-model="primerApellido"
+              >
+              </fg-input>
+            </ValidationProvider>
+
+
+            <ValidationProvider
+              name="segundoApellido"
+              rules="required"
+              v-slot="{ passed, failed }"
+            >
+              <fg-input
+                type="text"
+                :error="failed ? 'Segundo Apellido es requerido' : null"
+                :hasSuccess="passed"
+                placeholder="Segundo Apellido..."
+                addon-left-icon="now-ui-icons text_caps-small"
+                v-model="segundoApellido"
+              >
+              </fg-input>
+            </ValidationProvider>
+
+
 
             <ValidationProvider
               name="email"
