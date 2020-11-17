@@ -126,6 +126,17 @@
               >
               </fg-input>
             </ValidationProvider>
+
+
+<fg-input>
+            <el-date-picker
+              type="date"
+              placeholder="Date Picker"
+              v-model="datePicker"
+            >
+            </el-date-picker>
+          </fg-input>
+
             -->
 
             <ValidationProvider
@@ -178,6 +189,24 @@
             </ValidationProvider>
 
 
+            <ValidationProvider
+              name="datePicker"
+              rules="required"
+              v-slot="{ passed, failed }"
+            >
+              <fg-input :error="failed ? 'Fecha Nacimiento es requerida' : null"
+                  :hasSuccess="passed"
+                  >
+                <el-date-picker
+                  type="date"
+                  placeholder="Fecha Nacimiento"
+                  v-model="datePicker"
+                >
+                </el-date-picker>
+              </fg-input>
+            </ValidationProvider>
+
+
 
             <ValidationProvider
               name="email"
@@ -186,9 +215,9 @@
             >
               <fg-input
                 type="email"
-                :error="failed ? 'The Email field is required' : null"
+                :error="failed ? 'El correo electrónico es requerido' : null"
                 :hasSuccess="passed"
-                placeholder="Email..."
+                placeholder="Correo electrónico..."
                 addon-left-icon="now-ui-icons ui-1_email-85"
                 v-model="email"
               >
@@ -196,7 +225,7 @@
             </ValidationProvider>
 
             <checkbox class="text-left" v-model="agree">
-              I agree to the <a href="#something">terms and conditions</a>.
+              <a href="#something">He leído la confidencialidad de los datos</a>.
             </checkbox>
 
             <n-button
@@ -206,7 +235,7 @@
               round
               size="lg"
             >
-              Get Started
+              Inscribirse
             </n-button>
           </card>
         </div>
@@ -219,6 +248,9 @@ import { Checkbox } from "src/components";
 
 import { extend } from "vee-validate";
 import { required, email, confirmed } from "vee-validate/dist/rules";
+import {
+  DatePicker
+} from "element-ui";
 
 extend("email", email);
 extend("required", required);
@@ -226,14 +258,18 @@ extend("confirmed", confirmed);
 
 export default {
   components: {
-    Checkbox
+    Checkbox,
+    [DatePicker.name]: DatePicker
   },
   data() {
     return {
       email: "",
-      firstName: "",
-      lastName: "",
-      agree: false
+      cedulaProfesional: "",
+      nombres: "",
+      primerApellido: "",
+      segundoApellido: "",
+      agree: false,
+      datePicker: "",
     };
   },
   methods: {
