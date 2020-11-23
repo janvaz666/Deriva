@@ -100,6 +100,10 @@ const Registro = () =>
   import(
     /* webpackChunkName: "auth" */ "src/pages/Dashboard/Pages/Register.vue"
   );
+  const Surveys = () =>
+  import(
+    /* webpackChunkName: "auth" */ "src/pages/Dashboard/Surveys/Wizard-FormatoDerivador.vue"
+  );
 const Lock = () =>
   import(/* webpackChunkName: "auth" */ "src/pages/Dashboard/Pages/Lock.vue");
 
@@ -273,6 +277,11 @@ let authPages = {
       path: "/register",
       name: "Registro",
       component: Registro
+    },
+    {
+      path: "/survey",
+      name: "Surveys",
+      component: Surveys
     },
     {
       path: "/pricing",
