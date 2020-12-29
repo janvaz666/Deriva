@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>api</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:api.Controllers.ConvenioController.GetConvenio" -->
+        <!-- Badly formed XML comment ignored for member "M:api.Controllers.EspecialidadController.GetEspecialidad" -->
+        <member name="M:api.Controllers.RegistroController.AddPrimerRegistro(core.entities.RegistroEntity)">
+            <summary>
+            Agregar tipo moneda
+            </summary>
+            <returns>Registro de nuevo tipo de moneda</returns>
+            <response code = "200" > Proceso de registro realizado correctamente</response>
+            <response code = "500" > Error al realizar el proceso</response>
+        </member>
+        <member name="M:api.Services.JwtService.GenerateSecurityToken(System.String)">
+            <summary>
+            Generar token de seguridad
+            </summary>
+            <param name="email">Correo electrónico</param>
+            <returns>Cadena con el token generado</returns>
+        </member>
+    </members>
+</doc>

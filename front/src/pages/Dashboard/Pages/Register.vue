@@ -2,50 +2,8 @@
   <ValidationObserver v-slot="{ handleSubmit }">
     <form @submit.prevent="handleSubmit(submit)">
       <div class="row">
-
-
-        <div class="col-lg-3 ml-auto">
-          <!--
-          <div class="info-area info-horizontal mt-5">
-            <div class="icon icon-primary">
-              <i class="now-ui-icons media-2_sound-wave"></i>
-            </div>
-            <div class="description">
-              <h5 class="info-title">Marketing</h5>
-              <p class="description">
-                We've created the marketing campaign of the website. It was a
-                very interesting collaboration.
-              </p>
-            </div>
-          </div>
-
-          <div class="info-area info-horizontal">
-            <div class="icon icon-primary">
-              <i class="now-ui-icons media-1_button-pause"></i>
-            </div>
-            <div class="description">
-              <h5 class="info-title">Fully Coded in HTML5</h5>
-              <p class="description">
-                We've developed the website with HTML5 and CSS3. The client has
-                access to the code using GitHub.
-              </p>
-            </div>
-          </div>
-
-          <div class="info-area info-horizontal">
-            <div class="icon icon-info">
-              <i class="now-ui-icons users_single-02"></i>
-            </div>
-            <div class="description">
-              <h5 class="info-title">Built Audience</h5>
-              <p class="description">
-                There is also a Fully Customizable CMS Admin Dashboard for this
-                product.
-              </p>
-            </div>
-          </div>
-          -->
-
+        
+        <div class="col-lg-5 ml-auto">
           <div class="picture">
             <img
               src="img/Logo Deriva_horizontal_slogan.png"
@@ -53,47 +11,11 @@
               class="rounded img-raised"
             />
           </div>
-
         </div>
-
-
         
-
-
-
-
-        <div class="col-lg-7 mr-auto">
+        <div class="col-lg-4 mr-auto">
           <card class="card-signup text-center" no-footer-line>
-            <template slot="header">
-              <h4 class="card-title">Registro</h4>
-
-              <p slot="content">
-                Somos una herramienta de interconexión psicológica.
-                Nuestro objetivo es conformar una red de especialistas y trabajos para generar mayor
-                conciencia e inteligencia emocional en las personas.
-                La psicoeducación es nuestra base y la derivación nuestra finalidad,
-                Si deseas formar parte de nuestra red, registra aquí tu perfil y canalizaremos usuarios
-                que ya están requiriendo de tus servicios.
-              </p>
-              
-
-              <!--
-              <div class="social">
-                <button class="btn btn-icon btn-round btn-twitter">
-                  <i class="fa fa-twitter"></i>
-                </button>
-                <button class="btn btn-icon btn-round btn-dribbble">
-                  <i class="fa fa-dribbble"></i>
-                </button>
-                <button class="btn btn-icon btn-round btn-facebook">
-                  <i class="fa fa-facebook"> </i>
-                </button>
-                <h5 class="card-description">or be classical</h5>
-              </div>
-              -->
-
-            </template>
-
+            
             <ValidationProvider
               name="cedulaProfesional"
               rules="required"
@@ -101,56 +23,27 @@
             >
               <fg-input
                 type="text"
-                :error="failed ? 'La cédula profesional es requerida' : null"
+                :error="failed ? 'La cédula Profesional es requerida' : null"
                 :hasSuccess="passed"
                 placeholder="Cédula Profesional..."
                 addon-left-icon="now-ui-icons users_circle-08"
-                v-model="cedulaProfesional"
+                v-model="item.cedulaProfesional"
               >
               </fg-input>
             </ValidationProvider>
-
-            <!--
-             <ValidationProvider
-              name="firstName"
-              rules="required"
-              v-slot="{ passed, failed }"
-            >
-              <fg-input
-                type="text"
-                :error="failed ? 'The First Name field is required' : null"
-                :hasSuccess="passed"
-                placeholder="First Name..."
-                addon-left-icon="now-ui-icons users_circle-08"
-                v-model="firstName"
-              >
-              </fg-input>
-            </ValidationProvider>
-
-
-<fg-input>
-            <el-date-picker
-              type="date"
-              placeholder="Date Picker"
-              v-model="datePicker"
-            >
-            </el-date-picker>
-          </fg-input>
-
-            -->
 
             <ValidationProvider
-              name="nombres"
+              name="nombre"
               rules="required"
               v-slot="{ passed, failed }"
             >
               <fg-input
                 type="text"
-                :error="failed ? 'Nombre(s) son requeridos' : null"
+                :error="failed ? 'El nombre es requerido' : null"
                 :hasSuccess="passed"
-                placeholder="Nombre(s)..."
-                addon-left-icon="now-ui-icons users_circle-08"
-                v-model="nombres"
+                placeholder="Nombre ..."
+                addon-left-icon="now-ui-icons text_caps-small"
+                v-model="item.nombre"
               >
               </fg-input>
             </ValidationProvider>
@@ -162,11 +55,11 @@
             >
               <fg-input
                 type="text"
-                :error="failed ? 'Primer Apellido es requerido' : null"
+                :error="failed ? 'El Primer Apellido es requerido' : null"
                 :hasSuccess="passed"
-                placeholder="Primer Apellido..."
+                placeholder="Primer Apellido ..."
                 addon-left-icon="now-ui-icons text_caps-small"
-                v-model="primerApellido"
+                v-model="item.primerApellido"
               >
               </fg-input>
             </ValidationProvider>
@@ -179,53 +72,50 @@
             >
               <fg-input
                 type="text"
-                :error="failed ? 'Segundo Apellido es requerido' : null"
+                :error="failed ? 'El Segundo Apellido es requerido' : null"
                 :hasSuccess="passed"
-                placeholder="Segundo Apellido..."
+                placeholder="Segundo Apellido ..."
                 addon-left-icon="now-ui-icons text_caps-small"
-                v-model="segundoApellido"
+                v-model="item.segundoApellido"
               >
               </fg-input>
             </ValidationProvider>
 
 
             <ValidationProvider
-              name="datePicker"
+              name="telefono"
               rules="required"
               v-slot="{ passed, failed }"
             >
-              <fg-input :error="failed ? 'Fecha Nacimiento es requerida' : null"
-                  :hasSuccess="passed"
-                  >
-                <el-date-picker
-                  type="date"
-                  placeholder="Fecha Nacimiento"
-                  v-model="datePicker"
-                >
-                </el-date-picker>
+              <fg-input
+                type="text"
+                :error="failed ? 'El Télefono es requerido' : null"
+                :hasSuccess="passed"
+                placeholder="Télefono ..."
+                addon-left-icon="now-ui-icons text_caps-small"
+                v-model="item.telefono"
+              >
               </fg-input>
             </ValidationProvider>
 
-
-
             <ValidationProvider
-              name="email"
+              name="correo"
               rules="required|email"
               v-slot="{ passed, failed }"
             >
               <fg-input
                 type="email"
-                :error="failed ? 'El correo electrónico es requerido' : null"
+                :error="failed ? 'El correo Eletronico es requerido' : null"
                 :hasSuccess="passed"
-                placeholder="Correo electrónico..."
+                placeholder="Correo Electronico..."
                 addon-left-icon="now-ui-icons ui-1_email-85"
-                v-model="email"
+                v-model="item.correo"
               >
               </fg-input>
             </ValidationProvider>
 
-            <checkbox class="text-left" v-model="agree">
-              <a href="#something">He leído la confidencialidad de los datos</a>.
+            <checkbox class="text-left" v-model="item.sactivo">
+              Confidencialidad de datos.
             </checkbox>
 
             <n-button
@@ -235,7 +125,7 @@
               round
               size="lg"
             >
-              Inscribirse
+              Get Started
             </n-button>
           </card>
         </div>
@@ -248,9 +138,6 @@ import { Checkbox } from "src/components";
 
 import { extend } from "vee-validate";
 import { required, email, confirmed } from "vee-validate/dist/rules";
-import {
-  DatePicker
-} from "element-ui";
 
 extend("email", email);
 extend("required", required);
@@ -258,29 +145,53 @@ extend("confirmed", confirmed);
 
 export default {
   components: {
-    Checkbox,
-    [DatePicker.name]: DatePicker
+    Checkbox
   },
   data() {
     return {
-      email: "",
+      item: {
+      correo: "",
       cedulaProfesional: "",
-      nombres: "",
+      nombre: "",
       primerApellido: "",
       segundoApellido: "",
-      agree: false,
-      datePicker: "",
+      telefono: "",
+      activo: false
+      }
     };
   },
   methods: {
     async register() {
       let isValidForm = await this.$validator.validate();
       if (isValidForm) {
-        // TIP use this.model to send it to api and perform register call
+        await this.saveItem();
       }
+      
     },
-    submit() {
-      alert("Form has been submitted!");
+    async saveItem() {
+      // this.payload.prospecto.fechaEnvio = this.getDatetime();
+      // this.payload.prospecto.fechaAsignacion = this.getDatetime();
+      await this.$http
+        .post(route("Registro/AddRegistro"), this.item)
+        .then(
+          async response => {
+            if (response.body.code === 200) {
+              this.notifyMessage("success", this.$t("app.promps.save_success"));
+              this.correctSave = true;
+            } else {
+              this.trubbleSave = true;
+              this.notifyMessage("danger", this.$t("app.promps.error"));
+            }
+          },
+          error => {
+            this.trubbleSave = true;
+            this.notifyMessage("danger", this.$t("app.promps.error"));
+          }
+        )
+        .finally(() => {});
+    },
+    async submit() {
+      await this.saveItem();
     }
   }
 };

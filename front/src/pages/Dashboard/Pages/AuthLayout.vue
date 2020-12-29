@@ -32,17 +32,18 @@
 
         <router-link class="nav-item" tag="li" to="/pricing">
           <a class="nav-link">
-            <i class="now-ui-icons business_money-coins"></i>
-            Pricing
+            <i class="now-ui-icons users_circle-08"></i>
+            Mi Perfil
           </a>
         </router-link>
-
+        <!--
         <router-link class="nav-item" tag="li" to="/lock">
           <a class="nav-link">
             <i class="now-ui-icons ui-1_lock-circle-open"></i>
             Lock
           </a>
         </router-link>
+        -->
       </template>
     </navbar>
     <div class="wrapper wrapper-full-page">
@@ -50,7 +51,7 @@
         class="full-page section-image"
         :class="pageClass"
         filter-color="black"
-        data-image="/img/bg13.jpg"
+        data-image="/img/terapia grupal blue-01.jpg"
       >
         <div class="content">
           <div class="container">
@@ -105,7 +106,7 @@
 
         <div
           class="full-page-background"
-          style="backgroundImage: url('img/bg13.jpg')"
+          style="backgroundImage: url('img/terapia grupal blue-01.jpg')"
         ></div>
       </div>
     </div>

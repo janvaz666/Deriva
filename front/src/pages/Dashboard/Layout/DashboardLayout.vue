@@ -4,19 +4,21 @@
     <side-bar>
       <template slot="links">
         <user-menu></user-menu>
+
+        <!-- NOTA SE COMENTA PARA PRUEBAS
         <sidebar-item
           :link="{
             name: 'Dashboard',
             icon: 'now-ui-icons design_app',
             path: '/dashboard'
           }"
-        >
+        >-->
         </sidebar-item>
         <sidebar-item
           :link="{ name: 'Pages', icon: 'now-ui-icons design_image' }"
         >
           <sidebar-item
-            :link="{ name: 'Pricing', path: '/pricing' }"
+            :link="{ name: 'Mi Perfil', path: '/pricing' }"
           ></sidebar-item>
           <sidebar-item
             :link="{ name: 'Timeline', path: '/pages/timeline' }"
@@ -27,12 +29,15 @@
           <sidebar-item
             :link="{ name: 'Registro', path: '/register' }"
           ></sidebar-item>
+
+          <!-- NOTA SE COMENTA PARA PRUEBAS
           <sidebar-item
             :link="{ name: 'Lock Screen', path: '/lock' }"
           ></sidebar-item>
           <sidebar-item
             :link="{ name: 'User Profile', path: '/pages/user' }"
           ></sidebar-item>
+          -->
         </sidebar-item>
         <sidebar-item
           :link="{ name: 'Components', icon: 'now-ui-icons education_atom' }"
